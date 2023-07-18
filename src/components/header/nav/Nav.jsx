@@ -1,18 +1,26 @@
+import { useState } from "react";
+import NavItem from "./nav-item/NavItem";
+
 const Nav = ({ config, imSiracTivy }) => {
+  const [activeItem, setActiveItem] = useState(null);
+
   return (
     <nav>
-      <div className="nav-item">
-        <a href="#Home">
-          {config.navConfig.home}
-          {imSiracTivy}
-        </a>
-      </div>
-      <div className="nav-item">
-        <a href="#About">{config.navConfig.about}</a>
-      </div>
-      <div className="nav-item">
-        <a href="#Contact">{config.navConfig.contact}</a>
-      </div>
+      {config.navConfig.map(({ title, id }) => {
+        return (
+          <NavItem
+            title={title}
+            key={id}
+            id={id}
+            setActiveItem={setActiveItem}
+            activeItem={activeItem}
+          />
+
+          // <div className="nav-item" key={id}>
+          //   <a href={title}>{title}</a>
+          // </div>
+        );
+      })}
     </nav>
   );
 };

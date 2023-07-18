@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Counter from "../counter/Counter";
 import "./Main.css";
+import Gallery from "./gallery/Gallery";
 
 const Main = ({ content }) => {
   const [show, setShow] = useState(true);
@@ -15,8 +16,9 @@ const Main = ({ content }) => {
       >
         Show or Hide Counter
       </button>
-      {/* {show && <Counter />} */}
-      <Counter show={show} />
+      {show && <Counter />}
+      {/* <Counter show={show} /> */}
+      <Gallery />
     </main>
   );
 };

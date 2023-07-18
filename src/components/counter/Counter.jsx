@@ -1,7 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Counter.scss";
 
-const Counter = ({ show }) => {
+const Counter = () => {
+  useEffect(() => {
+    try {
+      //request
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    console.log("mounth");
+  }, []);
+
+  // useEffect(() => {
+
+  // }, [state])
+  // useEffect(() => {
+  //   console.log("amen angam");
+  // });
+
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("hetgrutyun");
+  //   };
+  // }, []);
+
   //   let count = 0;
 
   const [state, setState] = useState(0);
@@ -30,7 +53,7 @@ const Counter = ({ show }) => {
   }
 
   return (
-    <div className="counter" style={{ display: show ? "flex" : "none" }}>
+    <div className="counter">
       <button className="counter-decrement" onClick={decrement}>
         -
       </button>
